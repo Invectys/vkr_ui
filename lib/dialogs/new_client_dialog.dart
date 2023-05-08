@@ -13,7 +13,6 @@ class NewClientDialog extends StatefulWidget {
 }
 
 class _NewClientDialogState extends State<NewClientDialog> {
-
   String phoneNumber = "";
   String clientName = "";
 
@@ -30,22 +29,18 @@ class _NewClientDialogState extends State<NewClientDialog> {
             child: Column(
               children: [
                 const Text("Новый клиент", style: TextStyle(fontSize: 20),),
+                const SizedBox(height: 5,),
                 TextField(
                   decoration: const InputDecoration(
-                      hintText: "Имя клиента"
+                      hintText: "Псевдоним"
                   ),
                   onChanged: (val) {
                     clientName = val;
                   },
                 ),
-                TextField(
-                  decoration: const InputDecoration(
-                      hintText: "Телефон"
-                  ),
-                  onChanged: (val) {
-                    phoneNumber = val;
-                  },
-                ),
+                const SizedBox(height: 11,),
+                const Text("Телефон клиента обнаружен и автоматически добавлен", style: TextStyle(fontWeight: FontWeight.bold
+                ),),
                 TextButton(
                     onPressed: () async {
                       var id = const Uuid().v4();
@@ -60,7 +55,7 @@ class _NewClientDialogState extends State<NewClientDialog> {
                       );
                       Navigator.pop(context, databaseItem);
                     },
-                    child: const Text("Добавить")
+                    child: const Text("Создать")
                 )
               ],
             ),

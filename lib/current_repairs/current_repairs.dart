@@ -25,42 +25,22 @@ class _CurrentRepairsState extends State<CurrentRepairs> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Card(
-          elevation: 2,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 11),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Всего 10"),
-                  Text(" Почти завершено 3"),
-                  CubicProgress(finalCount: 3,),
-                  TextButton.icon(
-                    onPressed: () async {
-                      showDialog(context: context, builder: (context) {
-                        return NewRepairDialog();
-                      });
-                    },
-                    icon: Icon(Icons.add),
-                    label: Text("Новый ремонт")
-                  )
-                ],
-              )
-          ),
-        ),
         Expanded(
-          child: PaginationHttp(
-            itemBuilder: (context, data, index) {
-              var repair = data as RepairDatabase;
-              return CurrentRepairLine(
-                repairDatabase: repair,
-              );
-            },
-            fetchNew: (skip, count) async {
-              var response = await SwaggerClient.client.apiRepairsRepairsGet(skip: skip, limit: count);
-              var listData = response.body!;
-              return listData;
-            },
+          child: ListView(
+            children: const [
+              CurrentRepairLine(
+                brand: 'Suzuki',
+                time: "21:00 18:00",
+                cost: "100 000 ",
+                ownerName: "Владелец",
+              ),
+              CurrentRepairLine(
+                brand: 'Mazda',
+                time: "21:00 18:00",
+                cost: "100 000 ",
+                ownerName: "Владелец",
+              )
+            ],
           )
         ),
       ],

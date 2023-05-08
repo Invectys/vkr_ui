@@ -5,11 +5,17 @@ import 'package:trem_automology_flutter/common/cubic_progress.dart';
 import 'package:trem_automology_flutter/generated/swagger.swagger.dart';
 
 class CurrentRepairLine extends StatelessWidget {
-   CurrentRepairLine({Key? key,
-     required this.repairDatabase
+   const CurrentRepairLine({Key? key,
+     required this.brand,
+     required this.cost,
+     required this.ownerName,
+     required this.time
    }) : super(key: key);
 
-  RepairDatabase repairDatabase;
+   final String brand;
+   final String cost;
+   final String ownerName;
+   final String time;
 
   @override
   Widget build(BuildContext context) {
@@ -32,24 +38,118 @@ class CurrentRepairLine extends StatelessWidget {
                     onPressed: () {
 
                     },
-                    child: Text(repairDatabase.avto!.brand!, style: const TextStyle(fontSize: 21, color: Colors.black),)
+                    child: Text(brand, style: const TextStyle(fontSize: 21, color: Colors.black),)
                   ),
                   const SizedBox(width: 21,),
                   TextButton(
                     onPressed: () {
                     },
-                    child: Text(repairDatabase.avto!.owner!.name!),
+                    child: Text(ownerName),
                   ),
-                  Spacer(),
-                  Text("Стадия "),
-                  CubicProgress(finalCount: 3)
+                  const SizedBox(width: 41,),
+                  const SizedBox(width: 11,),
+                  const CubicProgress(finalCount: 3),
+                  const SizedBox(width: 21,),
+                  TextButton.icon(
+                      onPressed: () {
+                        showDialog(context: context, builder: (_) {
+                          return Center(
+                            child: SizedBox(
+                              width: 800,
+                              child: Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 11),
+                                  child: IntrinsicHeight(
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                                      children: [
+                                        Flexible(
+                                          flex: 2,
+                                          fit: FlexFit.tight,
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              const Text("Следующая стадия", style: TextStyle(fontSize: 21),),
+                                              const SizedBox(height: 21,),
+                                              Card(
+                                                elevation: 4,
+                                                child: Row(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Flexible(
+                                                      flex: 1,
+                                                      fit: FlexFit.tight,
+                                                      child: Image.asset("assets/stage/1.jpg")
+                                                    ),
+                                                    Flexible(
+                                                        flex: 1,
+                                                        fit: FlexFit.tight,
+                                                        child: AspectRatio(
+                                                          aspectRatio: 1.5,
+                                                          child: Image.asset("assets/stage/2.jpg", fit: BoxFit.cover,)
+                                                        )
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              SizedBox(height: 11,),
+                                              TextButton.icon(
+                                                  onPressed: () {},
+                                                  icon: Icon(Icons.image),
+                                                  label: Text("Загрузить картинку")
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(width: 11,),
+                                        Flexible(
+                                          flex: 1,
+                                          fit: FlexFit.tight,
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                                            children: [
+                                              SizedBox(height: 40,),
+                                              TextFormField(
+                                                initialValue: "Собираем кузов после покраски деталей",
+                                                maxLines: 10,
+                                                decoration: InputDecoration(
+                                                  hintText: "Описание"
+                                                ),
+                                              ),
+                                              SizedBox(height: 11,),
+                                              Row(
+                                                children: [
+                                                  Checkbox(value: true, onChanged: (val) {}),
+                                                  Text("Уведомить клиента")
+                                                ],
+                                              ),
+                                              Spacer(),
+                                              ElevatedButton(onPressed: () {}, child: Text("Добавить"))
+                                            ],
+                                          )
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                      },
+                      icon: const Icon(Icons.add),
+                      label: const Text("Добавить следующую стадию")
+                  ),
+                  const SizedBox(width: 21,),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.edit, size: 18,)),
+                  Text("$cost руб", style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
+                  const Spacer(),
+                  TextButton(onPressed: () {}, child: const Text("Завершить"))
                 ],
               ),
               Row(
                 children: [
-                  const Text("21.02 12:00", style: TextStyle(fontSize: 12),),
-                  const Spacer(),
-                  Text("${repairDatabase.cost} руб", style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),)
+                  Text("Создано: $time", style: const TextStyle(fontSize: 12),),
                 ],
               )
             ],

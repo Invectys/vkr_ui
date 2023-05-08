@@ -1,8 +1,9 @@
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:trem_automology_flutter/reports/specific/months_picker.dart';
 import 'package:trem_automology_flutter/reports/specific/popular_avtos/pie_chart_pa.dart';
 
-import 'bar_chart_pa.dart';
+import '../month_picker_vert.dart';
 
 class PopularAvtos extends StatelessWidget {
   const PopularAvtos({Key? key}) : super(key: key);
@@ -11,23 +12,36 @@ class PopularAvtos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Полуярные автомобили"),
+        title: Row(
+          children: [
+            const Text("Полуярные автомобили"),
+          ],
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 11, horizontal: 6),
-        child: Column(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    PiePopularAvtos(),
-                    BarChartPA()
-                  ],
-                )
+            Flexible(
+              flex: 1,
+              fit: FlexFit.tight,
+              child: PiePopularAvtos()
             ),
-            MonthsPicker()
+            Flexible(
+              flex: 1,
+              fit: FlexFit.tight,
+              child: CalendarDatePicker2(
+                config: CalendarDatePicker2Config(
+                  calendarType: CalendarDatePicker2Type.range,
+                ),
+                initialValue: [
+                  DateTime(2023, 1, 1),
+                  DateTime(2023, 3, 1)
+                ],
+                onValueChanged: (dates) {},
+              )
+            )
           ],
         ),
       ),

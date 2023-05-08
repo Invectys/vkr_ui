@@ -42,7 +42,7 @@ dependencies:
   fl_chart: ^0.61.0
   calendar_date_picker2: ^0.4.6
   time_planner: ^0.1.1
-
+  duration_picker: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +84,28 @@ flutter:
     - assets/audi1_profile.webp
     - assets/automology_title.webp
     - assets/profile_default.png
+    - assets/avto-icons/audi.png
+    - assets/avto-icons/bmw.png
+    - assets/avto-icons/chevrolet.png
+    - assets/avto-icons/citroen.png
+    - assets/avto-icons/honda.webp
+    - assets/avto-icons/kia.png
+    - assets/avto-icons/landrover.png
+    - assets/avto-icons/merc.jpeg
+    - assets/avto-icons/opel.jpeg
+    - assets/avto-icons/porsche.png
+    - assets/avto-icons/nissan.jpeg
+    - assets/avto-icons/lexus.jpeg
+    - assets/avto-icons/peugeot.png
+    - assets/avto-icons/renault.png
+    - assets/avto-icons/skoda.png
+    - assets/avto-icons/toyota.png
+    - assets/avto-icons/suzuki.png
+    - assets/avto-icons/volkswagen.png
+    - assets/avto-icons/volvo.png
+    - assets/avto-icons/mazda.png
+    - assets/stage/1.jpg
+    - assets/stage/2.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

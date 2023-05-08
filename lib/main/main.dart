@@ -19,7 +19,7 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  Widget _currentPage = const AllContactsPage();
+  Widget _currentPage = const Plans();
 
   @override
   Widget build(BuildContext context) {

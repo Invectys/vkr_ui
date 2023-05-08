@@ -31,13 +31,14 @@ class _ClientContactsPageState extends State<ClientContactsPage> {
                 children: [
                   ListTile(
                     title: Text("Звонки"),
+                    selected: true,
                     leading: Icon(Icons.phone, size: 32,),
                   ),
                   ListTile(
                     title: Text("Whats app"),
                     leading: Image.asset("assets/whatsapp.png"),
                     subtitle: Text("Последнее сообщение"),
-                    selected: true,
+
                   ),
                   ListTile(
                     title: Text("Telegram"),
@@ -177,7 +178,6 @@ class CallItem extends StatelessWidget {
     );
   }
 }
-
 
 class ClientNotFoundedWithChat extends StatelessWidget {
   const ClientNotFoundedWithChat({Key? key}) : super(key: key);

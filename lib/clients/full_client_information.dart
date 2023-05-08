@@ -127,8 +127,7 @@ class _FullClientInformationState extends State<FullClientInformation> with Sing
                                 ],
                               ),
                             ),
-
-                            SizedBox(height: 21,),
+                            const SizedBox(height: 21,),
                             Row(
                               children: [
                                 ElevatedButton(

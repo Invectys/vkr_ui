@@ -16,60 +16,92 @@ class Dashboard extends StatelessWidget {
             child: Card(
               elevation: 11,
               color: Colors.white,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Заработано: 100 000 руб ")
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 11),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text("Текущий месяц", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
+                    const SizedBox(height: 7,),
+                    Row(
+                      children: const [
+                        Text("Заработано: 210 000 руб"),
+                        Text(" +2%", style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Row(
+                      children: const [
+                        Text("Обслужено автомобилей: 5"),
+                        Text("  - 20%", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Row(
+                      children: const [
+                        Text("Новых клиентов: 4"),
+                        Text("  - 50%", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Row(
+                      children: const [
+                        Text("Клиентов вернулось повторно: 2"),
+                        Text("  - 30%", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Row(
+                      children: const [
+                        Text("Сейчас в ремонте: 1"),
+                      ],
+                    ),
+                    const SizedBox(height: 21,),
+                    ElevatedButton(
+                        onPressed: () {
+                          showDialog(context: context, builder: (_) {
+                            return Center(
+                              child: SizedBox(
+                                width: 400,
+                                child: Card(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 11),
+                                    child: IntrinsicHeight(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          const Text("Массовая рассылка", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
+                                          TextFormField(
+                                            decoration: const InputDecoration(
+                                              hintText: "Сообщение для отправки",
+                                            ),
+                                            maxLines: 4,
+                                          ),
+                                          const SizedBox(height: 11,),
+                                          Row(
+                                            children: [
+                                              ElevatedButton(
+                                                onPressed: () {
+
+                                                },
+                                                child: const Text("Отправить")
+                                              ),
+                                              const SizedBox(width: 4,),
+                                              const Text("Используется предпочтительный мессенджер", style: TextStyle(fontSize: 11),)
+                                            ],
+                                          )
+                                        ],
+                                      )
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          });
+                        },
+                        child: const Text("Отослать сообщение всем клиентам")
+                    )
+                  ],
+                ),
               )
             ),
           ),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: [
-                Card(
-                  color: Colors.blue,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(11))
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(21),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text("Автомобилей в ремонте: 3", style: TextStyle(color: Colors.white),),
-                        SizedBox(height: 11,),
-                        Text("Выполнено за месяц: 10", style: TextStyle(color: Colors.white),),
-                        SizedBox(height: 11,),
-                        Text("Самый популярный автомобиль: Opel", style: TextStyle(color: Colors.white)),
-                        SizedBox(height: 11,),
-                        Text("Оценки пользователей: 4,7 ", style: TextStyle(color: Colors.white)),
-                        SizedBox(height: 11,),
-                        Text("Выполнено ремонтов за квартал: 78", style: TextStyle(color: Colors.white)),
-                        SizedBox(height: 11,),
-                        Text("Выполнено ремонтов за год: 100", style: TextStyle(color: Colors.white)),
-                        SizedBox(height: 11,),
-                        Text("Новых клиентов за месяц: 10", style: TextStyle(color: Colors.white)),
-                        SizedBox(height: 11,),
-                        Text("Вернулось постоянных клиентов: 2", style: TextStyle(color: Colors.white)),
-                        SizedBox(height: 11,),
-                        Text("Средний чек клиента: 30 000 руб", style: TextStyle(color: Colors.white)),
-                        SizedBox(height: 11,),
-                      ],
-                    ),
-                  ),
-                ),
-                Card(
-                  color: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(11))
-                  ),
-                )
-              ],
-            ),
-          )
         ],
       ),
     );

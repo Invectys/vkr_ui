@@ -1,3 +1,5 @@
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:duration_picker/duration_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:time_planner/time_planner.dart';
 import 'package:trem_automology_flutter/avto/avto_item.dart';
@@ -147,7 +149,103 @@ class _PlansState extends State<Plans> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     TextButton.icon(
-                      onPressed: () {  },
+                      onPressed: () {
+                        //s
+                        showDialog(context: context, builder: (_) {
+                          return Center(
+                            child: SizedBox(
+                              width: 800,
+                              height: 430,
+                              child: Card(
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 11),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      const Text("Новая задача", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
+                                      Expanded(
+                                        child: Row(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Flexible(
+                                              flex: 1,
+                                              fit: FlexFit.tight,
+                                              child: Column(
+                                                children: [
+                                                  CalendarDatePicker2(
+                                                    config: CalendarDatePicker2Config(),
+                                                    onValueChanged: (_) {},
+                                                    initialValue: [],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Flexible(
+                                              flex: 1,
+                                              fit: FlexFit.tight,
+                                              child: Column(
+                                                children: [
+                                                  TextFormField(
+                                                    decoration: const InputDecoration(
+                                                      hintText: "Название",
+                                                    ),
+                                                    maxLines: 1,
+                                                  ),
+                                                  TextFormField(
+                                                    decoration: const InputDecoration(
+                                                      hintText: "Описание задачи",
+                                                    ),
+                                                    maxLines: 4,
+                                                  ),
+                                                  const SizedBox(height: 11,),
+                                                  TextFormField(
+                                                    decoration: const InputDecoration(
+                                                      hintText: "Длительность",
+                                                    ),
+                                                    maxLines: 1,
+                                                  ),
+                                                  Spacer(),
+                                                  Row(
+                                                    children: [
+                                                      TextButton.icon(
+                                                          onPressed: () {},
+                                                          icon: Icon(Icons.person),
+                                                          label: Text("Выбрать клиента")
+                                                      ),
+                                                      TextButton.icon(
+                                                          onPressed: () {},
+                                                          icon: Icon(Icons.car_repair),
+                                                          label: Text("Выбрать автомобиль")
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Spacer(),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          ElevatedButton(
+                                              onPressed: () {
+
+                                              },
+                                              child: Text("Создать задачу")
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        });
+                        //s
+                      },
                       icon: const Icon(Icons.access_time_filled_rounded, size: 21,),
                       label: const Text("Новая задача"),
                     ),

@@ -11,7 +11,11 @@ class ServedClients extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Количественный отчет", style: TextStyle(color: Colors.white),),
+        title: Row(
+          children: [
+            Text("Графики", style: TextStyle(color: Colors.white),),
+          ],
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(vertical: 11, horizontal: 6),
@@ -101,16 +105,7 @@ class ServedClients extends StatelessWidget {
               ],
             ),
             Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                      child: LineChartCustomersServed()
-                  ),
-                  MonthsPicker(),
-                  SizedBox(height: 21,)
-                ],
-              ),
+              child: LineChartCustomersServed()
             ),
           ],
         ),

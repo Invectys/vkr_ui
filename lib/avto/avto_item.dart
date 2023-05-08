@@ -55,6 +55,7 @@ class AvtoItem extends StatelessWidget {
                         const SizedBox(width: 11,),
                         const Text("Дата последнего ремонта: "),
                         Text(dateLastRepair, style: const TextStyle(fontWeight: FontWeight.bold),),
+
                         const Spacer(),
                         const Text("Затрачено: "),
                         Text(cost, style: const TextStyle(fontWeight: FontWeight.bold),),
@@ -98,7 +99,18 @@ class AvtoItem extends StatelessWidget {
                               Text(phoneNumber, style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)
                             ],
                           ),
-                        )
+                        ),
+                        SizedBox(width: 11,),
+
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        TextButton.icon(
+                            onPressed: () {},
+                            icon: const Icon(Icons.add, color: Colors.white,),
+                            label: const Text("Новый ремонт", style: TextStyle(color: Colors.white),)
+                        ),
                       ],
                     )
                   ],

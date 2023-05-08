@@ -67,10 +67,14 @@ class PiePopularAvtosState extends State {
               color: const Color(0xffffffff),
               shadows: shadows,
             ),
-            badgeWidget: _Badge(
-              'assets/icons/ophthalmology-svgrepo-com.svg',
-              size: widgetSize,
-              borderColor: AppColors.contentColorBlack,
+            badgeWidget: Container(
+              height: 64,
+              width: 64,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(40),
+                border: Border.all(width: 4)
+              ),
+              child: ClipOval(child: Image.asset("assets/avto-icons/kia.png"))
             ),
             badgePositionPercentageOffset: .98,
           );
@@ -86,10 +90,15 @@ class PiePopularAvtosState extends State {
               color: const Color(0xffffffff),
               shadows: shadows,
             ),
-            badgeWidget: _Badge(
-              'assets/icons/librarian-svgrepo-com.svg',
-              size: widgetSize,
-              borderColor: AppColors.contentColorBlack,
+            badgeWidget: Container(
+                height: 64,
+                width: 64,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(40),
+                  border: Border.all(width: 4)
+                ),
+                child: ClipOval(child: Image.asset("assets/avto-icons/mazda.png"))
             ),
             badgePositionPercentageOffset: .98,
           );
@@ -105,10 +114,15 @@ class PiePopularAvtosState extends State {
               color: const Color(0xffffffff),
               shadows: shadows,
             ),
-            badgeWidget: _Badge(
-              'assets/icons/fitness-svgrepo-com.svg',
-              size: widgetSize,
-              borderColor: AppColors.contentColorBlack,
+            badgeWidget: Container(
+                height: 64,
+                width: 64,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(40),
+                    border: Border.all(width: 4)
+                ),
+                child: ClipOval(child: Image.asset("assets/avto-icons/opel.jpeg"))
             ),
             badgePositionPercentageOffset: .98,
           );
@@ -124,10 +138,15 @@ class PiePopularAvtosState extends State {
               color: const Color(0xffffffff),
               shadows: shadows,
             ),
-            badgeWidget: _Badge(
-              'assets/icons/worker-svgrepo-com.svg',
-              size: widgetSize,
-              borderColor: AppColors.contentColorBlack,
+            badgeWidget: Container(
+                height: 64,
+                width: 64,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(40),
+                    border: Border.all(width: 4)
+                ),
+                child: ClipOval(child: Image.asset("assets/avto-icons/skoda.png"))
             ),
             badgePositionPercentageOffset: .98,
           );
