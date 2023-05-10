@@ -44,6 +44,50 @@ class _NewAvtoDialogState extends State<NewAvtoDialog> {
                     },
                   ),
                   Row(
+                    children: const [
+                      Flexible(
+                        flex: 1,
+                        fit: FlexFit.tight,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              hintText: "Тип кузова"
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        fit: FlexFit.tight,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              hintText: "Тип топлива"
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: const [
+                      Flexible(
+                        flex: 1,
+                        fit: FlexFit.tight,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              hintText: "Класс"
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        fit: FlexFit.tight,
+                        child: TextField(
+                          decoration: InputDecoration(
+                              hintText: "Привод"
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Row(
                     children: [
                       Expanded(
                           child: TextField(

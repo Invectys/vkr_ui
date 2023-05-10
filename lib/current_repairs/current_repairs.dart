@@ -25,6 +25,17 @@ class _CurrentRepairsState extends State<CurrentRepairs> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            TextButton.icon(onPressed: () {
+              showDialog(context: context, builder: (_) {
+                return const NewRepairDialog();
+              });
+            }, icon: const Icon(Icons.add), label: const Text("Новый ремонт")),
+          ],
+        ),
         Expanded(
           child: ListView(
             children: const [

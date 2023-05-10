@@ -54,11 +54,12 @@ class _AvtosState extends State<Avtos> {
                     }, hint: 'по телефону',
                   ),
                   const TextField(),
+                  const Text("По дате ремонта", style: TextStyle(fontSize: 19),),
                   CalendarDatePicker2(
                     config: CalendarDatePicker2Config(
                       calendarType: CalendarDatePicker2Type.range
                     ),
-                    initialValue: [],
+                    value: [],
                   ),
                   TextButton.icon(
                       onPressed: () {

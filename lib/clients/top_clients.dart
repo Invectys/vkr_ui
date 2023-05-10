@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:trem_automology_flutter/common/pagination_http.dart';
 import 'package:trem_automology_flutter/common/search_input.dart';
+import 'package:trem_automology_flutter/dialogs/ne_client_set_phone_dialog.dart';
 import 'package:trem_automology_flutter/dialogs/new_client_dialog.dart';
 import 'package:trem_automology_flutter/generated/swagger.swagger.dart';
 import 'package:trem_automology_flutter/swagger_client/SwaggerClient.dart';
@@ -90,7 +91,7 @@ class _TopClientsState extends State<TopClients> {
                       var result = await showDialog(
                           context: context,
                           builder: (context) {
-                            return const NewClientDialog();
+                            return const NewClientSetPhoneDialog();
                           }
                       ) as ClientDatabase;
                       listKey.currentState!.insertInStart([result]);
@@ -100,6 +101,76 @@ class _TopClientsState extends State<TopClients> {
               )
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    showDialog(context: context, builder: (_) {
+                      return Center(
+                        child: SizedBox(
+                          width: 400,
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 11),
+                              child: IntrinsicHeight(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      const Text("Рассылка", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
+                                      TextFormField(
+                                        decoration: const InputDecoration(
+                                          hintText: "Сообщение для отправки",
+                                        ),
+                                        maxLines: 4,
+                                      ),
+                                      const SizedBox(height: 11,),
+                                      Row(
+                                        children: [
+                                          Flexible(
+                                            flex: 1,
+                                            fit: FlexFit.tight,
+                                            child: TextButton.icon(
+                                              icon: Icon(Icons.image), onPressed: () {  }, label: Text("Изображения"),
+                                            ),
+                                          ),
+                                          const Flexible(
+                                            flex: 1,
+                                            fit: FlexFit.tight,
+                                            child: TextField(
+                                              decoration: InputDecoration(
+                                                hintText: "Тип уведомления"
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          ElevatedButton(
+                                              onPressed: () {
+
+                                              },
+                                              child: const Text("Отправить")
+                                          ),
+                                          const SizedBox(width: 4,),
+                                          const Text("Используется предпочитаемый способ связи", style: TextStyle(fontSize: 11),)
+                                        ],
+                                      )
+                                    ],
+                                  )
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    });
+                  },
+                  child: const Text("Отослать сообщение всем клиентам")
+              ),
+            ],
+          ),
+          const SizedBox(height: 11,),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,

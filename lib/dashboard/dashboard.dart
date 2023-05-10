@@ -53,50 +53,7 @@ class Dashboard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 21,),
-                    ElevatedButton(
-                        onPressed: () {
-                          showDialog(context: context, builder: (_) {
-                            return Center(
-                              child: SizedBox(
-                                width: 400,
-                                child: Card(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 11),
-                                    child: IntrinsicHeight(
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          const Text("Массовая рассылка", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
-                                          TextFormField(
-                                            decoration: const InputDecoration(
-                                              hintText: "Сообщение для отправки",
-                                            ),
-                                            maxLines: 4,
-                                          ),
-                                          const SizedBox(height: 11,),
-                                          Row(
-                                            children: [
-                                              ElevatedButton(
-                                                onPressed: () {
 
-                                                },
-                                                child: const Text("Отправить")
-                                              ),
-                                              const SizedBox(width: 4,),
-                                              const Text("Используется предпочтительный мессенджер", style: TextStyle(fontSize: 11),)
-                                            ],
-                                          )
-                                        ],
-                                      )
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            );
-                          });
-                        },
-                        child: const Text("Отослать сообщение всем клиентам")
-                    )
                   ],
                 ),
               )

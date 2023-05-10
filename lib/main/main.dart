@@ -9,6 +9,7 @@ import '../current_repairs/current_repairs.dart';
 import '../history/history_of_repairs.dart';
 import '../plans/plans.dart';
 import '../reports/reports.dart';
+import '../requests/request_to_repair.dart';
 import 'button_line_main.dart';
 
 class Main extends StatefulWidget {
@@ -19,7 +20,7 @@ class Main extends StatefulWidget {
 }
 
 class _MainState extends State<Main> {
-  Widget _currentPage = const Plans();
+  Widget _currentPage = const RequestsToRepair();
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +90,15 @@ class _MainState extends State<Main> {
                     onPressed: () {
                       setState(() {
                         _currentPage = const Avtos();
+                      });
+                    },
+                  ),
+                  ButtonLineMain(
+                    title: "Заявки на осмотр",
+                    icon: Icons.add,
+                    onPressed: () {
+                      setState(() {
+                        _currentPage = const RequestsToRepair();
                       });
                     },
                   ),

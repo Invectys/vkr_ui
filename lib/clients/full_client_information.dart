@@ -134,7 +134,7 @@ class _FullClientInformationState extends State<FullClientInformation> with Sing
                                     onPressed: () {
 
                                     },
-                                    child: const Text("Взаимодействия",
+                                    child: const Text("Связаться",
                                       style: TextStyle(fontSize: 18),
                                     )
                                 )
@@ -181,7 +181,86 @@ class _FullClientInformationState extends State<FullClientInformation> with Sing
                               icon: const Icon(Icons.add),
                               label: const Text("Добавить автомобиль", style: TextStyle(fontSize: 21),)
                           )
-                        )
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              fit: FlexFit.tight,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Text("Телефоны", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
+                                      IconButton(icon: Icon(Icons.add), onPressed: () {  },)
+                                    ],
+                                  ),
+                                  Card(
+                                    elevation: 2,
+                                    child: Row(
+                                      children: [
+                                        IconButton(icon: Icon(Icons.star), onPressed: () {  },),
+                                        const Text("+ 7 (977) 277 55 66", style: TextStyle(fontSize: 21))
+                                      ],
+                                    ),
+                                  ),
+                                  Card(
+                                    elevation: 2,
+                                    child: Row(
+                                      children: [
+                                        IconButton(icon: Icon(Icons.star_border_outlined), onPressed: () {  },),
+                                        const Text("+ 7 (254) 123 55 55", style: TextStyle(fontSize: 21))
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              )
+                            ),
+                            Flexible(
+                                flex: 1,
+                                fit: FlexFit.tight,
+                                child:  Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        const Text("Почты и мессенджеры", style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
+                                        IconButton(icon: Icon(Icons.add), onPressed: () {  },)
+                                      ],
+                                    ),
+                                    Card(
+                                      elevation: 2,
+                                      child: Row(
+                                        children: [
+                                          IconButton(icon: Icon(Icons.star), onPressed: () {  },),
+                                          Image.asset("assets/telegram.webp", height: 32, width: 32,),
+                                          const SizedBox(width: 6,),
+                                          const Text("+ 7 (254) 123 55 55", style: TextStyle(fontSize: 21))
+                                        ],
+                                      ),
+                                    ),
+                                    Card(
+                                      elevation: 2,
+                                      child: Row(
+                                        children: [
+                                          IconButton(icon: Icon(Icons.star_border_outlined), onPressed: () {  },),
+                                          Image.asset("assets/gmail.png", height: 32, width: 32,),
+                                          const SizedBox(width: 6,),
+                                          const Text(" asdfasfass@gmail.com", style: TextStyle(fontSize: 21))
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                )
+                            )
+
+                          ],
+                        ),
+
                       ],
                     )
                   )

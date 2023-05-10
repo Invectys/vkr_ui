@@ -175,7 +175,7 @@ class _PlansState extends State<Plans> {
                                                   CalendarDatePicker2(
                                                     config: CalendarDatePicker2Config(),
                                                     onValueChanged: (_) {},
-                                                    initialValue: [],
+                                                    value: [],
                                                   ),
                                                 ],
                                               ),
@@ -201,6 +201,13 @@ class _PlansState extends State<Plans> {
                                                   TextFormField(
                                                     decoration: const InputDecoration(
                                                       hintText: "Длительность",
+                                                    ),
+                                                    maxLines: 1,
+                                                  ),
+                                                  const SizedBox(height: 11,),
+                                                  TextFormField(
+                                                    decoration: const InputDecoration(
+                                                      hintText: "Тип задачи",
                                                     ),
                                                     maxLines: 1,
                                                   ),

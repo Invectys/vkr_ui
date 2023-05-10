@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:trem_automology_flutter/dialogs/new_client_dialog.dart';
 
 class AllContactsPage extends StatelessWidget {
   const AllContactsPage({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class AllContactsPage extends StatelessWidget {
             skipped: true,
             time: "16:04"
         ),
-        MessageContact(time: '16:06', messengerAsset: "assets/telegram.webp", client: "Клиент",),
+        MessageContact(time: '16:06', messengerAsset: "assets/telegram.webp", client: "Клиент", showAddMe: true,),
         MessageContact(time: '16:10', messengerAsset: "assets/telegram.webp", client: "Клиент 2"),
         MessageContact(time: '16:11', messengerAsset: "assets/whatsapp.png", client: "Клиент"),
         CallItem(
@@ -77,11 +78,12 @@ class CallItem extends StatelessWidget {
 
 
 class MessageContact extends StatelessWidget {
-  const MessageContact({Key? key, required this.time, required this.messengerAsset, required this.client}) : super(key: key);
+  const MessageContact({Key? key, required this.time, required this.messengerAsset, required this.client, this.showAddMe = false}) : super(key: key);
 
   final String client;
   final String messengerAsset;
   final String time;
+  final bool showAddMe;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +105,13 @@ class MessageContact extends StatelessWidget {
               const SizedBox(width: 21,),
               const Icon(Icons.message, color: Colors.grey, size: 32,),
               const SizedBox(width: 21,),
-              Text(time, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)
+              Text(time, style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+              if(showAddMe)
+                TextButton.icon(onPressed: () {
+                  showDialog(context: context, builder: (_) {
+                    return const NewClientDialog();
+                  });
+                }, icon: Icon(Icons.add), label: Text("Клиент не добавлен. Добавить"))
             ],
           )
       ),

@@ -35,7 +35,7 @@ class PopularAvtos extends StatelessWidget {
                 config: CalendarDatePicker2Config(
                   calendarType: CalendarDatePicker2Type.range,
                 ),
-                initialValue: [
+                value: [
                   DateTime(2023, 1, 1),
                   DateTime(2023, 3, 1)
                 ],
